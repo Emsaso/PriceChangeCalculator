@@ -1,0 +1,11 @@
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\bin\Debug\netcoreapp3.0\PriceChangeCalculator.exe
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\bin\Debug\netcoreapp3.0\PriceChangeCalculator.deps.json
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\bin\Debug\netcoreapp3.0\PriceChangeCalculator.runtimeconfig.json
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\bin\Debug\netcoreapp3.0\PriceChangeCalculator.runtimeconfig.dev.json
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\bin\Debug\netcoreapp3.0\PriceChangeCalculator.dll
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\bin\Debug\netcoreapp3.0\PriceChangeCalculator.pdb
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\obj\Debug\netcoreapp3.0\PriceChangeCalculator.csprojAssemblyReference.cache
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\obj\Debug\netcoreapp3.0\PriceChangeCalculator.AssemblyInfoInputs.cache
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\obj\Debug\netcoreapp3.0\PriceChangeCalculator.AssemblyInfo.cs
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\obj\Debug\netcoreapp3.0\PriceChangeCalculator.dll
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\obj\Debug\netcoreapp3.0\PriceChangeCalculator.pdb
