@@ -7,9 +7,12 @@ namespace PriceChangeCalculator
 {
     class Program
     {
+        //public static readonly string DocumentPath = @"OBX2.csv";
         static void Main(string[] args)
         {
-            DataReader.Read();
+            Console.WriteLine("Name of text file: (obx)");
+            var documentPath = Console.ReadLine();
+            DataReader.Read(documentPath);
             Console.WriteLine("\tOBS      -    Siste \n");
             Console.WriteLine(DataReader.Csv);
         }

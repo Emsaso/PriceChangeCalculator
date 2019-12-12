@@ -6,8 +6,9 @@ using System.Text;
 
 namespace PriceChangeCalculator
 {
-    public class DataReader
+    public class DocumentReader
     {
+        public static readonly string DocumentPath = @"OBX2.csv";
         public static StringBuilder Csv;
         public static DateTime GetDate;
         public static float GetLast;
@@ -15,22 +16,15 @@ namespace PriceChangeCalculator
         public static float ValueWhenSold;
         public static bool StocksPurchased;
         public static bool InitInvest;
-        public static void Read(string docPath)
+        public static void Read()
         {
             var csv = new StringBuilder();
-            // Kan hende lines må skrives på en annen måte
-            var lines = File.ReadLines(docPath + ".csv").Skip(1).Reverse();
-            Console.WriteLine("Start-date:");
-            var initDate = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("End-date:");
-            var endDate = DateTime.Parse(Console.ReadLine());
-            // Liker ikke å se om i < endDate
-            for (var i = initDate; i <= endDate.Date; i.Date.AddDays(1))
+            var lines = File.ReadAllLines(DocumentPath).Skip(1).Reverse();
+            foreach (var line in lines)
             {
-                // Kan være feil måte å lese på
-                var values = lines.ToString().Split(',');
+                if (line == null) continue;
+                var values = line.Split(',');
                 var date = values[0];
-                // Kan skje at den ikke finner ikke values[1]
                 var last = values[1];
                 string csvLine;
 
@@ -38,7 +32,6 @@ namespace PriceChangeCalculator
                 GetLast = Convert.ToSingle(last.Replace('.', ','));
                 var percentageGain = GetLast / ValueWhenPurchased * 100;
                 var investmentAmount = 10000;
-
                 if (GetLast < ValueWhenSold && !StocksPurchased || !InitInvest)
                 {
                     InitInvest = true;
@@ -56,7 +49,6 @@ namespace PriceChangeCalculator
                 {
                     csvLine = $"Date: {GetDate:d} - Last: {GetLast:0.00}";
                 }
-
                 csv.AppendLine(csvLine);
             }
             Csv = csv;
