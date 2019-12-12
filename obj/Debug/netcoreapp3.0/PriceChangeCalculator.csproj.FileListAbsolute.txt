@@ -9,3 +9,4 @@ C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\ob
 C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\obj\Debug\netcoreapp3.0\PriceChangeCalculator.AssemblyInfo.cs
 C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\obj\Debug\netcoreapp3.0\PriceChangeCalculator.dll
 C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\obj\Debug\netcoreapp3.0\PriceChangeCalculator.pdb
+C:\Users\Get Academy\source\repos\PriceChangeCalculator\PriceChangeCalculator\bin\Debug\netcoreapp3.0\OBX2.csv
