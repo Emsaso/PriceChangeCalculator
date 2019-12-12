@@ -9,9 +9,9 @@ namespace PriceChangeCalculator
     {
         static void Main(string[] args)
         {
-            DocumentReader.GetDataFromCsv();
+            DataReader.Read();
             Console.WriteLine("\tOBS      -    Siste \n");
-            Console.WriteLine(DocumentReader.Csv);
+            Console.WriteLine(DataReader.Csv);
         }
     }
 }
