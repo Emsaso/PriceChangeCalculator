@@ -6,5 +6,6 @@ namespace PriceChangeCalculator
 {
     class DataReader
     {
+
     }
 }
