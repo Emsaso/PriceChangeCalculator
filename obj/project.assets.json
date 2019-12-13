@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Get Academy\\source\\repos\\PriceChangeCalculator\\PriceChangeCalculator\\PriceChangeCalculator.csproj",
+      "projectUniqueName": "C:\\PriceChangeCalculator\\PriceChangeCalculator\\PriceChangeCalculator.csproj",
       "projectName": "PriceChangeCalculator",
-      "projectPath": "C:\\Users\\Get Academy\\source\\repos\\PriceChangeCalculator\\PriceChangeCalculator\\PriceChangeCalculator.csproj",
+      "projectPath": "C:\\PriceChangeCalculator\\PriceChangeCalculator\\PriceChangeCalculator.csproj",
       "packagesPath": "C:\\Users\\Get Academy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Get Academy\\source\\repos\\PriceChangeCalculator\\PriceChangeCalculator\\obj\\",
+      "outputPath": "C:\\PriceChangeCalculator\\PriceChangeCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
