@@ -11,10 +11,8 @@ namespace PriceChangeCalculator
         static void Main(string[] args)
         {
             Console.WriteLine("Name of text file: (obx)");
-            var documentPath = Console.ReadLine();
+            var documentPath = Console.ReadLine() + ".csv";
             DataReader.Read(documentPath);
-            Console.WriteLine("\tOBS      -    Siste \n");
-            Console.WriteLine(DataReader.Csv);
         }
     }
 }
