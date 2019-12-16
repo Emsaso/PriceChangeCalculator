@@ -8,10 +8,5 @@ namespace PriceChangeCalculator
     {
         public DateTime GetDate;
         public float GetLast;
-        public void GetValues(string d, string l)
-        {
-            GetDate = Convert.ToDateTime(d);
-            GetLast = Convert.ToSingle(l.Replace('.', ','));
-        }
     }
 }
