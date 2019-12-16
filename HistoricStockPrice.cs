@@ -22,15 +22,14 @@ namespace PriceChangeCalculator
                 var values = line.Split(',');
                 var date = values[0];
                 var last = values[1];
-                DateTime getDate = new ComputeValues().GetDate;
-                float getLast = new ComputeValues().GetLast;
+                ComputeValues.GetValues(date, last);
+                DateTime getDate = ComputeValues.GetDate;
+                float getLast = ComputeValues.GetLast;
                 string csvLine;
                 var trueStart = start.ToString("dd/MM/yyyy").Replace('.', '/');
                 var trueEnd = end.ToString("dd/MM/yyyy").Replace('.', '/');
                 // date (xx/xx/xxxx) og Start/End (xx.xx.xxxx xx:xx:xx)
                 if (DateTime.Parse(date) < DateTime.Parse(trueStart) || DateTime.Parse(date) > DateTime.Parse(trueEnd)) continue;
-                getDate = Convert.ToDateTime(date);
-                getLast = Convert.ToSingle(last.Replace('.', ','));
                 var percentageGain = getLast / ValueWhenPurchased * 100;
                 var investmentAmount = 10000;
                 if (getLast * 1.05 < ValueWhenSold && !StocksPurchased || !InitInvest)

@@ -6,7 +6,12 @@ namespace PriceChangeCalculator
 {
     public class ComputeValues
     {
-        public DateTime GetDate;
-        public float GetLast;
+        public static DateTime GetDate;
+        public static float GetLast;
+        public static void GetValues(string d, string l)
+        {
+            GetDate = Convert.ToDateTime(d);
+            GetLast = Convert.ToSingle(l.Replace('.', ','));
+        }
     }
 }
