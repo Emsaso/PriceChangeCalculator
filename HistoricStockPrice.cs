@@ -33,12 +33,12 @@ namespace PriceChangeCalculator
                 GetLast = Convert.ToSingle(last.Replace('.', ','));
                 var percentageGain = GetLast / ValueWhenPurchased * 100;
                 var investmentAmount = 10000;
-                if (GetLast < ValueWhenSold && !StocksPurchased || !InitInvest)
+                if (GetLast * 1.05 < ValueWhenSold && !StocksPurchased || !InitInvest)
                 {
                     InitInvest = true;
                     ValueWhenPurchased = GetLast;
                     StocksPurchased = true;
-                    csvLine = $"Date: {GetDate:d} - Last: {GetLast:0.00} - Investment: {investmentAmount}kr - Purchased at: {ValueWhenPurchased}";
+                    csvLine = $"Date: {GetDate:d} - Last: {GetLast:0.00} - Investment: {investmentAmount}kr - Purchased at: {ValueWhenPurchased} ({(GetLast/ValueWhenSold * 100):0.00}%)";
                 }
                 else if (percentageGain > 105 && StocksPurchased)
                 {
