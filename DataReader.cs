@@ -18,7 +18,6 @@ namespace PriceChangeCalculator
             Console.WriteLine("End-date:");
             var endDate = DateTime.Parse(Console.ReadLine());
             fullList.Read(Csv, docPath, initDate, endDate);
-            Console.WriteLine("\tDato      -    Siste \n");
             Console.WriteLine(Csv);
         }
     }

@@ -15,9 +15,8 @@ namespace PriceChangeCalculator
         public static bool StocksPurchased;
         public static bool InitInvest;
         
-        public void Read(StringBuilder Csv, string path, DateTime Start, DateTime End)
+        public void Read(StringBuilder csv, string path, DateTime start, DateTime end)
         {
-            var csv = new StringBuilder();
             var lines = File.ReadAllLines(path).Skip(1).Reverse();
             foreach (var line in lines)
             {
@@ -26,8 +25,8 @@ namespace PriceChangeCalculator
                 var date = values[0];
                 var last = values[1];
                 string csvLine;
-                var trueStart = Start.ToString("dd/MM/yyyy").Replace('.', '/');
-                var trueEnd = End.ToString("dd/MM/yyyy").Replace('.', '/');
+                var trueStart = start.ToString("dd/MM/yyyy").Replace('.', '/');
+                var trueEnd = end.ToString("dd/MM/yyyy").Replace('.', '/');
                 // date (xx/xx/xxxx) og Start/End (xx.xx.xxxx xx:xx:xx)
                 if (DateTime.Parse(date) < DateTime.Parse(trueStart) || DateTime.Parse(date) > DateTime.Parse(trueEnd)) continue;
                 GetDate = Convert.ToDateTime(date);
@@ -51,7 +50,7 @@ namespace PriceChangeCalculator
                 {
                     csvLine = $"Date: {GetDate:d} - Last: {GetLast:0.00}";
                 }
-                Csv.AppendLine(csvLine);
+                csv.AppendLine(csvLine);
             }
         }
     }
