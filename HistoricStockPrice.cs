@@ -8,8 +8,6 @@ namespace PriceChangeCalculator
 {
     public class HistoricStockPrice
     {
-        public static DateTime GetDate;
-        public static float GetLast;
         public static float ValueWhenPurchased;
         public static float ValueWhenSold;
         public static bool StocksPurchased;
@@ -24,31 +22,33 @@ namespace PriceChangeCalculator
                 var values = line.Split(',');
                 var date = values[0];
                 var last = values[1];
+                DateTime getDate = new ComputeValues().GetDate;
+                float getLast = new ComputeValues().GetLast;
                 string csvLine;
                 var trueStart = start.ToString("dd/MM/yyyy").Replace('.', '/');
                 var trueEnd = end.ToString("dd/MM/yyyy").Replace('.', '/');
                 // date (xx/xx/xxxx) og Start/End (xx.xx.xxxx xx:xx:xx)
                 if (DateTime.Parse(date) < DateTime.Parse(trueStart) || DateTime.Parse(date) > DateTime.Parse(trueEnd)) continue;
-                GetDate = Convert.ToDateTime(date);
-                GetLast = Convert.ToSingle(last.Replace('.', ','));
-                var percentageGain = GetLast / ValueWhenPurchased * 100;
+                getDate = Convert.ToDateTime(date);
+                getLast = Convert.ToSingle(last.Replace('.', ','));
+                var percentageGain = getLast / ValueWhenPurchased * 100;
                 var investmentAmount = 10000;
-                if (GetLast * 1.05 < ValueWhenSold && !StocksPurchased || !InitInvest)
+                if (getLast * 1.05 < ValueWhenSold && !StocksPurchased || !InitInvest)
                 {
                     InitInvest = true;
-                    ValueWhenPurchased = GetLast;
+                    ValueWhenPurchased = getLast;
                     StocksPurchased = true;
-                    csvLine = $"Date: {GetDate:d} - Last: {GetLast:0.00} - Investment: {investmentAmount}kr - Purchased at: {ValueWhenPurchased} ({(GetLast/ValueWhenSold * 100):0.00}%)";
+                    csvLine = $"Date: {getDate:d} - Last: {getLast:0.00} - Investment: {investmentAmount}kr - Purchased at: {ValueWhenPurchased} ({(getLast/ValueWhenSold * 100):0.00}%)";
                 }
                 else if (percentageGain > 105 && StocksPurchased)
                 {
-                    ValueWhenSold = GetLast;
+                    ValueWhenSold = getLast;
                     StocksPurchased = false;
-                    csvLine = $"Date: {GetDate:d} - Last: {GetLast:0.00} - Sold at: {GetLast} - Return: {investmentAmount * (percentageGain / 100) - ValueWhenPurchased:0.00} ({percentageGain:0.00}%)";
+                    csvLine = $"Date: {getDate:d} - Last: {getLast:0.00} - Sold at: {getLast} - Return: {investmentAmount * (percentageGain / 100) - ValueWhenPurchased:0.00} ({percentageGain:0.00}%)";
                 }
                 else
                 {
-                    csvLine = $"Date: {GetDate:d} - Last: {GetLast:0.00}";
+                    csvLine = $"Date: {getDate:d} - Last: {getLast:0.00}";
                 }
                 csv.AppendLine(csvLine);
             }
