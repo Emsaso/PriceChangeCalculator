@@ -13,9 +13,9 @@ namespace PriceChangeCalculator
         {
             Csv = new StringBuilder();
             var fullList = new HistoricStockPrice();
-            Console.WriteLine("Start-date:");
+            Console.WriteLine("Start-date: (skriv mellom 02/01/1996 og 02/12/2019 (kan bruke enten '.' eller '/'))");
             var initDate = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("End-date:");
+            Console.WriteLine("End-date: (skriv mellom 02/01/1996 og 02/12/2019 (kan bruke enten '.' eller '/'))");
             var endDate = DateTime.Parse(Console.ReadLine());
             fullList.Read(Csv, docPath, initDate, endDate);
             Console.WriteLine(Csv);
