@@ -30,20 +30,21 @@ namespace PriceChangeCalculator
                 var trueEnd = end.ToString("dd/MM/yyyy").Replace('.', '/');
                 // date (xx/xx/xxxx) og Start/End (xx.xx.xxxx xx:xx:xx)
                 if (DateTime.Parse(date) < DateTime.Parse(trueStart) || DateTime.Parse(date) > DateTime.Parse(trueEnd)) continue;
-                var percentageGain = getLast / ValueWhenPurchased * 100;
+                var percentageUp = getLast / ValueWhenPurchased * 100;
+                var percentageDown = getLast / ValueWhenSold * 100;
                 var investmentAmount = 10000;
-                if (getLast * 1.05 < ValueWhenSold && !StocksPurchased || !InitInvest)
+                if (percentageDown < 95 && !StocksPurchased || !InitInvest)
                 {
                     InitInvest = true;
                     ValueWhenPurchased = getLast;
                     StocksPurchased = true;
-                    csvLine = $"Date: {getDate:d} - Last: {getLast:0.00} - Investment: {investmentAmount}kr - Purchased at: {ValueWhenPurchased} ({(getLast/ValueWhenSold * 100):0.00}%)";
+                    csvLine = $"Date: {getDate:d} - Last: {getLast:0.00} - Investment: {investmentAmount}kr - Purchased at: {ValueWhenPurchased} ({percentageDown:0.00}%)";
                 }
-                else if (percentageGain > 105 && StocksPurchased)
+                else if (percentageUp > 105 && StocksPurchased)
                 {
                     ValueWhenSold = getLast;
                     StocksPurchased = false;
-                    csvLine = $"Date: {getDate:d} - Last: {getLast:0.00} - Sold at: {getLast} - Return: {investmentAmount * (percentageGain / 100) - ValueWhenPurchased:0.00} ({percentageGain:0.00}%)";
+                    csvLine = $"Date: {getDate:d} - Last: {getLast:0.00} - Sold at: {getLast} - Return: {investmentAmount * (percentageUp / 100) - ValueWhenPurchased:0.00}kr ({percentageUp:0.00}%)";
                 }
                 else
                 {
