@@ -54,8 +54,8 @@ namespace PriceChangeCalculator
                 var date = values[0];
                 var last = values[1];
                 ComputeValues.GetValues(date, last);
-                DateTime getDate = ComputeValues.GetDate;
-                float getLast = ComputeValues.GetLast;
+                var getDate = ComputeValues.GetDate;
+                var getLast = ComputeValues.GetLast;
                 var trueStart = start.ToString("dd/MM/yyyy").Replace('.', '/');
                 var trueEnd = end.ToString("dd/MM/yyyy").Replace('.', '/');
                 if (DateTime.Parse(date) < DateTime.Parse(trueStart) || DateTime.Parse(date) > DateTime.Parse(trueEnd)) continue;
