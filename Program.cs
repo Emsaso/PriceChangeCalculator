@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text;
+using PriceChangeCalculator.Terje;
 
 namespace PriceChangeCalculator
 {
@@ -11,7 +12,11 @@ namespace PriceChangeCalculator
         {
             Console.WriteLine("Name of text file: (obx)");
             var documentPathInput = Console.ReadLine() + ".csv";
-            DataReader.Read(documentPathInput);
+            //DataReader.Read(documentPathInput);
+
+            var data = StockValuesAndDatesReader.Read(documentPathInput);
+            var analyzer = new InvestmentAnalyzer(data);
+            analyzer.Analyse();
         }
     }
 }

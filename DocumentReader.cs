@@ -22,8 +22,7 @@ namespace PriceChangeCalculator
             var lines = File.ReadAllLines(DocumentPath).Skip(1).Reverse();
             foreach (var line in lines)
             {
-                if (line == null) continue;
-                var values = line.Split(',');
+                var values = line.Split(',', StringSplitOptions.RemoveEmptyEntries);
                 var date = values[0];
                 var last = values[1];
                 string csvLine;
