@@ -12,7 +12,7 @@ namespace PriceChangeCalculator.Terje
         public static bool StocksPurchased;
         public static bool InitInvest;
         public static StringBuilder StringBuild;
-        private List<StockValueAndDate> _list;
+        private readonly List<StockValueAndDate> _list;
 
         public InvestmentAnalyzer(List<StockValueAndDate> list)
         {
@@ -26,11 +26,11 @@ namespace PriceChangeCalculator.Terje
             Console.WriteLine("End-date: (02/01/1996 - 02/12/2019)");
             var endDate = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("Investment amount: (~10000)");
-            var investmentAmount = float.Parse(Console.ReadLine());
+            var investmentAmount = float.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
             Console.WriteLine("Buy percentage: (~95)");
-            var buyPercentage = float.Parse(Console.ReadLine());
+            var buyPercentage = float.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
             Console.WriteLine("Sell percentage: (~105)");
-            var sellPercentage = float.Parse(Console.ReadLine());
+            var sellPercentage = float.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
             var trueStart = initDate.ToString("dd/MM/yyyy").Replace('.', '/');
             var trueEnd = endDate.ToString("dd/MM/yyyy").Replace('.', '/');
             foreach (var valueAndDate in _list)
